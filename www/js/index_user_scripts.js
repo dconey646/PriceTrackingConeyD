@@ -22,18 +22,18 @@
         /* button  #submitFirstStageProcessButton */
     $(document).on("click", "#submitFirstStageProcessButton", function(evt)
     {
-        console.log($('#amazonRadioButton').prop("checked"));
-        console.log($('#ebayRadioButton').prop("checked"));
-        console.log($('#expansysRadioButton').prop("checked"));
-        if(!$('#amazonRadioButton').prop("checked" )&&
-           !$('#ebayRadioButton').prop("checked") &&
-           !$('#expansysRadioButton').prop("checked")) {
+        console.log($('#amazonCheckbox').prop("checked"));
+        console.log($('#ebayCheckbox').prop("checked"));
+        console.log($('#expansysCheckbox').prop("checked"));
+        if(!$('#amazonCheckbox').prop("checked" )&&
+           !$('#ebayCheckbox').prop("checked") &&
+           !$('#expansysCheckbox').prop("checked")) {
             $('#noButtonSelectedErrorText').css({'display' : 'inline', 'visibility': 'visible' });
         }
         else {
-            localStorage.setItem("amazonAPISearch", $('#amazonRadioButton').prop("checked"));
-            localStorage.setItem("ebayAPISearch", $('#ebayRadioButton').prop("checked"));
-            localStorage.setItem("expansysAPISearch", $('#expansysRadioButton').prop("checked"));
+            localStorage.setItem("amazonAPISearch", $('#amazonCheckbox').prop("checked"));
+            localStorage.setItem("ebayAPISearch", $('#ebayCheckbox').prop("checked"));
+            localStorage.setItem("expansysAPISearch", $('#expansysCheckbox').prop("checked"));
             activate_subpage('#itemChoosingPage');
         }
     });
@@ -51,6 +51,19 @@
         alert("Amazon: " + localStorage.getItem("amazonAPISearch"));
         alert("Ebay: " + localStorage.getItem("ebayAPISearch"));
         alert("Expansys: " + localStorage.getItem("expansysAPISearch"));
+        
+        if($('#itemInput').val() === ""){
+            alert("Please enter a value into the search box!");
+        } else {
+            localStorage.setItem('searchTerm', $('#itemInput').val());
+            activate_subpage('#itemVerificationPage');
+        }
+    });
+    
+        /* button  #itemVerificationButton */
+    $(document).on("click", "#itemVerificationButton", function(evt)
+    {
+        /* your code goes here */ 
     });
     
     }

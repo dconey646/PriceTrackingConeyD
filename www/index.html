@@ -73,7 +73,7 @@
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
         <div class="upage" id="mainpage" data-role="page">
 
-            <div class="upage-content ac0 content-area vertical-col left" id="uib_page_2">
+            <div class="upage-content ac0 content-area vertical-col" id="uib_page_2">
                 <div class="widget uib_w_2 d-margins titleText" data-uib="media/text" data-ver="0" id="appTitleText">
                     <div class="widget-container left-receptacle"></div>
                     <div class="widget-container right-receptacle"></div>
@@ -83,7 +83,7 @@
                 </div><a class="widget uib_w_1 d-margins buttonText" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="left" id="startButton">Start</a><a class="widget uib_w_3 d-margins" data-uib="jquery_mobile/button"
                 data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="historyButton">History</a><a class="widget uib_w_4 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="settingsButton">Settings</a>
             </div>
-            <div id="startPriceTrackProcess" class="upage-content vertical-col left hidden">
+            <div id="startPriceTrackProcess" class="upage-content vertical-col hidden">
                 <div class="widget uib_w_5 d-margins QuestionText" data-uib="media/text" data-ver="0">
                     <div class="widget-container left-receptacle"></div>
                     <div class="widget-container right-receptacle"></div>
@@ -99,44 +99,184 @@
                         <p>Please make at least one choice before tapping submit!</p>
                     </div>
                 </div>
-                <div class="ui-radio widget uib_w_6" data-uib="jquery_mobile/radio_button" data-ver="0">
+                <div class="ui-checkbox widget uib_w_33 d-margins" data-uib="jquery_mobile/checkbox" data-ver="0">
                     <label>Amazon
-                        <input type="radio" id="amazonRadioButton" value="false" data-theme="a" data-iconpos="left">
+                        <input type="checkbox" id="amazonCheckbox">
                     </label>
                 </div>
-                <div class="ui-radio widget uib_w_7" data-uib="jquery_mobile/radio_button" data-ver="0">
+                <div class="ui-checkbox widget uib_w_34 d-margins" data-uib="jquery_mobile/checkbox" data-ver="0">
                     <label>eBay
-                        <input type="radio" id="ebayRadioButton" value="false">
+                        <input type="checkbox" id="ebayCheckbox">
                     </label>
                 </div>
-                <div class="ui-radio widget uib_w_8" data-uib="jquery_mobile/radio_button" data-ver="0">
+                <div class="ui-checkbox widget uib_w_35 d-margins" data-uib="jquery_mobile/checkbox" data-ver="0">
                     <label>Expansys
-                        <input type="radio" id="expansysRadioButton" value="false">
+                        <input type="checkbox" id="expansysCheckbox">
                     </label>
                 </div>
                 <a class="widget uib_w_9 d-margins buttonText" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" id="submitFirstStageProcessButton" data-icon="arrow-r">Select</a>
             </div>
-            <div class="widget uib_w_11 d-margins QuestionText" data-uib="media/text" data-ver="0" id="slectItemText">
-                <div class="widget-container left-receptacle"></div>
-                <div class="widget-container right-receptacle"></div>
-                <div>
-                    <p>Please type in the item you wish to search for:</p>
-                </div>
-            </div>
 
-            <div id="itemChoosingPage" class="upage-content vertical-col left hidden">
-                <div class="table-thing with-label widget uib_w_12 d-margins" data-uib="jquery_mobile/input" data-ver="0">
-                    <label class="narrow-control" for="itemTextInput"></label>
-                    <input class="wide-control" type="text" id="itemTextInput">
-                </div>
-                <div class="widget uib_w_15 d-margins" data-uib="media/text" data-ver="0" id="testText">
+            <div id="itemChoosingPage" class="upage-content vertical-col hidden">
+                <div class="widget uib_w_15 d-margins QuestionText" data-uib="media/text" data-ver="0" id="itemFindingText">
                     <div class="widget-container left-receptacle"></div>
                     <div class="widget-container right-receptacle"></div>
                     <div>
-                        <p>&nbsp;</p>
+                        <p>Please enter the item you are looking for:</p>
                     </div>
                 </div>
+                <div class="table-thing with-label widget uib_w_12 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+                    <label class="narrow-control" for="itemInput"></label>
+                    <input class="wide-control" type="text" id="itemInput">
+                </div>
+
                 <a class="widget uib_w_14 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="submitItemChoice">Submit item</a>
+            </div>
+            <div id="itemVerificationPage" class="upage-content vertical-col hidden">
+                <div class="widget uib_w_16 d-margins QuestionText" data-uib="media/text" data-ver="0">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div>
+                        <p>Check that these are the items you are looking for. If it is, press yes and the price of the item will be tracked.</p>
+                    </div>
+                </div>
+                <div data-role="collapsible-set" class="no_wrap widget uib_w_17 d-margins" data-uib="jquery_mobile/accordion" data-ver="0" data-collapsed-icon="plus" data-expanded-icon="minus" id="itemVerificationCollapsible">
+                    <div data-role="collapsible" class="no_wrap widget uib_w_18" data-uib="jquery_mobile/collapsible" data-ver="0" id="amazonCollapsible">
+                        <h4>Amazon</h4>
+                        <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="card_grid widget uib_w_21 wrapping-col flex-basis-21" data-uib="layout/card_grid" data-ver="0" id="amazonCardGrid">
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_23 section-dimension-23" data-uib="layout/card" data-ver="0">
+                                        <div class="widget uib_w_30 scale-image" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="images/Strabburg.jpg">
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_24 section-dimension-24" data-uib="layout/card" data-ver="0">
+                                        <div class="widget uib_w_31" data-uib="media/text" data-ver="0">
+                                            <div class="widget-container left-receptacle"></div>
+                                            <div class="widget-container right-receptacle"></div>
+                                            <div>
+                                                <p>Placeholder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_25 section-dimension-25" data-uib="layout/card" data-ver="0">
+                                        <div class="table-thing with-label no_wrap widget uib_w_26" data-uib="jquery_mobile/checkbox_group" data-ver="0" id="expansysYesNoCheckboxGroup">
+                                            <label class="narrow-control label-inline">Is this the correct item?</label>
+                                            <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-mini="true">
+                                                <div class="ui-checkbox widget uib_w_27" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                                    <label>Yes
+                                                        <input type="checkbox" data-mini="true" id="expansysCheckboxYes">
+                                                    </label>
+                                                </div>
+                                                <div class="ui-checkbox widget uib_w_28" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                                    <label>No
+                                                        <input type="checkbox" data-mini="true" id="expansysCheckboxNo">
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-role="collapsible" class="no_wrap widget uib_w_19" data-uib="jquery_mobile/collapsible" data-ver="0" id="ebayCollapsible">
+                        <h4>eBay</h4>
+                        <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="card_grid widget uib_w_21 wrapping-col flex-basis-21" data-uib="layout/card_grid" data-ver="0" id="ebayCardGrid">
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_23 section-dimension-23" data-uib="layout/card" data-ver="0">
+                                        <div class="widget uib_w_30 scale-image" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="images/Strabburg.jpg" id="ebayItemImage">
+
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_24 section-dimension-24" data-uib="layout/card" data-ver="0">
+                                        <div class="widget uib_w_31" data-uib="media/text" data-ver="0">
+                                            <div class="widget-container left-receptacle"></div>
+                                            <div class="widget-container right-receptacle"></div>
+                                            <div>
+                                                <p>Placeholder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_25 section-dimension-25" data-uib="layout/card" data-ver="0">
+                                        <div class="table-thing with-label no_wrap widget uib_w_26" data-uib="jquery_mobile/checkbox_group" data-ver="0" id="ebayYesNoCheckboxGroup">
+                                            <label class="narrow-control label-inline">Is this the correct item?</label>
+                                            <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-mini="true">
+                                                <div class="ui-checkbox widget uib_w_27" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                                    <label>Yes
+                                                        <input type="checkbox" data-mini="true" id="ebayCheckboxYes">
+                                                    </label>
+                                                </div>
+                                                <div class="ui-checkbox widget uib_w_28" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                                    <label>No
+                                                        <input type="checkbox" data-mini="true" id="ebayCheckboxNo">
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-role="collapsible" class="no_wrap widget uib_w_20" data-uib="jquery_mobile/collapsible" data-ver="0" id="expansysCollapsible">
+                        <h4>Expansys</h4>
+                        <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="card_grid widget uib_w_21 wrapping-col flex-basis-21" data-uib="layout/card_grid" data-ver="0" id="expansysCardGrid">
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_23 section-dimension-23" data-uib="layout/card" data-ver="0">
+                                        <div class="widget uib_w_30 scale-image" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="images/Strabburg.jpg" id="expansysItemImage">
+
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_24 section-dimension-24" data-uib="layout/card" data-ver="0">
+                                        <div class="widget uib_w_31" data-uib="media/text" data-ver="0">
+                                            <div class="widget-container left-receptacle"></div>
+                                            <div class="widget-container right-receptacle"></div>
+                                            <div>
+                                                <p>Placeholder</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_25 section-dimension-25" data-uib="layout/card" data-ver="0">
+                                        <div class="table-thing with-label no_wrap widget uib_w_26" data-uib="jquery_mobile/checkbox_group" data-ver="0" id="expansysYesNoCheckboxGroup">
+                                            <label class="narrow-control label-inline">Is this the correct item?</label>
+                                            <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-mini="true">
+                                                <div class="ui-checkbox widget uib_w_27" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                                    <label>Yes
+                                                        <input type="checkbox" data-mini="true" id="expansysCheckboxYes">
+                                                    </label>
+                                                </div>
+                                                <div class="ui-checkbox widget uib_w_28" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                                    <label>No
+                                                        <input type="checkbox" data-mini="true" id="expansysCheckboxNo">
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="widget uib_w_32 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="arrow-r" id="itemVerificationButton" data-theme="b">Button</a>
             </div>
         </div>
     </body>
