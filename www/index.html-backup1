@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2">
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <!--      
+      You may substitute jQuery for the App Framework selector library.
+      See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+    -->
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+    <script type="application/javascript">
+      $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+      /* This function runs when the content is loaded.*/
+      $.afui.useOSThemes=false;
+       $(document).ready(function(){
+          setTimeout(function(){
+              $.afui.launch();
+          },1500);
+      });
+    </script>
+    <script type="application/javascript" src="js/app.js"></script>
+    <script type="application/javascript" src="js/init-app.js"></script>
+    <script type="application/javascript" src="js/index_user_scripts.js"></script>
+    <script type="application/javascript" src="xdk/ad/jqm_subpage.js"></script>
+  </head>
+
+  <body id="afui" class="v2">
+
+    <div class="upage vertical-col left view" id="mainpage" data-header="none" data-footer="none">
+      <div class="pages">
+        <div class="upage-content vertical-col left panel ac0" id="uib_page_1">
+          <div class="widget uib_w_2 d-margins titleText" data-uib="media/text" data-ver="0" id="appTitleText">
+            <div class="widget-container left-receptacle"></div>
+            <div class="widget-container right-receptacle"></div>
+            <div>
+              <p>Price Tracking App</p>
+            </div>
+          </div><a class="button widget uib_w_1 d-margins buttonText icon right black" data-uib="app_framework/button" data-ver="2" id="startButton">Start</a><a class="button widget uib_w_3 icon right black d-margins" data-uib="app_framework/button" data-ver="2"
+          id="historyButton">History</a><a class="button widget uib_w_4 icon right black d-margins" data-uib="app_framework/button" data-ver="2" id="settingsButton">Settings</a>
+        </div>
+      </div>
+    </div>
+    <div class="upage vertical-col left view" id="startPriceTrack" data-header="none" data-footer="none">
+      <div class="pages">
+        <div class="upage-content vertical-col left panel ac0" id="uib_page_2"></div>
+      </div>
+      <div class="widget uib_w_5 d-margins QuestionText" data-uib="media/text" data-ver="0">
+        <div class="widget-container left-receptacle"></div>
+        <div class="widget-container right-receptacle"></div>
+        <div>
+          <p>Which site(s) would you like to use to track your item?</p>
+          <p>Please select at least one checkbox:</p>
+        </div>
+      </div>
+      <div class="widget uib_w_10 d-margins errorText noButtonSelectedErrorText" data-uib="media/text" data-ver="0" id="noButtonSelectedErrorText">
+        <div class="widget-container left-receptacle"></div>
+        <div class="widget-container right-receptacle"></div>
+        <div>
+          <p>Please make at least one choice before tapping submit!</p>
+        </div>
+      </div>
+      <div class="widget uib_w_33 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+        <input type="checkbox" id="amazonCheckbox">
+        <label class="content-box" for="amazonCheckbox">Amazon</label>
+      </div>
+      <div class="widget uib_w_34 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+        <input type="checkbox" id="ebayCheckbox">
+        <label class="content-box" for="ebayCheckbox">eBay</label>
+      </div>
+      <div class="widget uib_w_35 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+        <input type="checkbox" id="expansysCheckbox">
+        <label class="content-box" for="expansysCheckbox">Expansys</label>
+      </div><a class="button widget uib_w_9 icon right black d-margins buttonText" data-uib="app_framework/button" data-ver="2" id="submitFirstStageProcessButton">Select</a>
+      <div class="widget uib_w_15 d-margins QuestionText" data-uib="media/text" data-ver="0" id="itemFindingText">
+        <div class="widget-container left-receptacle"></div>
+        <div class="widget-container right-receptacle"></div>
+        <div>
+          <p>Please enter the item you are looking for:</p>
+        </div>
+      </div>
+    </div>
+    <div class="upage vertical-col left view" id="itemChoicePage" data-header="none" data-footer="none">
+      <div class="pages">
+        <div class="upage-content vertical-col left panel ac0" id="uib_page_2"></div>
+      </div>
+      <div class="table-thing with-label widget uib_w_12 d-margins" data-uib="app_framework/input" data-ver="2">
+        <input class="wide-control" id="itemInput" type="text">
+      </div><a class="button widget uib_w_14 icon right black d-margins" data-uib="app_framework/button" data-ver="2" id="submitItemChoice">Submit item</a>
+    </div>
+    <div class="upage vertical-col left view" id="itemVerifyProcess" data-header="none" data-footer="none">
+      <div class="pages">
+        <div class="upage-content vertical-col left panel ac0" id="uib_page_2"></div>
+      </div>
+      <div class="widget uib_w_16 d-margins QuestionText" data-uib="media/text" data-ver="0">
+        <div class="widget-container left-receptacle"></div>
+        <div class="widget-container right-receptacle"></div>
+        <div>
+          <p>Check that these are the items you are looking for. If it is, press yes and the price of the item will be tracked.</p>
+        </div>
+      </div>
+      <div class="grid grid-pad urow uib_row_1001 row-height-1001" data-uib="layout/row" data-ver="0">
+        <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
+          <div class="widget-container content-area vertical-col left">
+            <span class="uib_shim"></span>
+          </div>
+        </div>
+        <span class="uib_shim"></span>
+      </div>
+      <div class="widget uib_w_23 widget-container content-area vertical-col uib-card cpad-0 d-margins section-dimension-23" data-uib="layout/card" data-ver="0">
+        <div class="widget uib_w_30 scale-image d-margins" data-uib="media/img" data-ver="0">
+          <figure class="figure-align">
+            <img src="images/Strabburg.jpg">
+            <figcaption data-position="bottom"></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="widget uib_w_24 widget-container content-area vertical-col uib-card cpad-0 d-margins section-dimension-24" data-uib="layout/card" data-ver="0">
+        <div class="widget uib_w_31 d-margins" data-uib="media/text" data-ver="0">
+          <div class="widget-container left-receptacle"></div>
+          <div class="widget-container right-receptacle"></div>
+          <div>
+            <p>Placeholder</p>
+          </div>
+        </div>
+      </div>
+      <div class="widget uib_w_25 widget-container content-area vertical-col uib-card cpad-0 d-margins section-dimension-25" data-uib="layout/card" data-ver="0">
+        <div class="table-thing with-label widget uib_w_26 d-margins" data-uib="app_framework/checkbox_group" data-ver="2" id="expansysYesNoCheckboxGroup">
+          <label class="narrow-control label-inline">Is this the correct item?</label>
+          <div class="wide-control">
+            <div class="widget uib_w_27 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+              <input type="checkbox" id="expansysCheckboxYes">
+              <label class="content-box" for="expansysCheckboxYes">Yes</label>
+            </div>
+            <div class="widget uib_w_28 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+              <input type="checkbox" id="expansysCheckboxNo">
+              <label class="content-box" for="expansysCheckboxNo">No</label>
+            </div>
+          </div>
+        </div>
+      </div><a class="button widget uib_w_23 icon right black" data-uib="app_framework/button" data-ver="2" id="itemVerificationButton">Button</a>
+    </div>
+  </body>
+
+</html>

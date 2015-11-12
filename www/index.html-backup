@@ -65,29 +65,9 @@
         <script type="application/javascript" src="jqm/jquery.mobile-min.js" data-ver="0"></script>
         <script type="application/javascript" src="js/index_user_scripts.js"></script>
         <script type="application/javascript" src="xdk/ad/jqm_subpage.js"></script>
-        <script type="application/javascript" src="lib/angular.min.js"></script>
-        <script type="application/javascript" src="xdk/ad/angular_support.js"></script>
-        <script type="application/javascript" src="xdk/ad/jquery.ba-throttle-debounce.min.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
-        <script type="application/javascript" src="xdk/services/xml2json.js"></script>
-        <script type="application/javascript" src="xhr.js"></script>
-        <script type="application/javascript" src="xdk/services/service-credentials.js"></script>
-        <script type="application/javascript" src="xdk/services/service-methods.js"></script>
-        <script type="application/javascript" src="xdk/ad/ad_events_data.js"></script>
-        <script type="application/javascript" src="js/index_init_services.js"></script>
-        <script type="application/javascript" src="xdk/ad/index_setup_services.js"></script>
-        <script type="application/javascript" src="xdk/ad/jqm_events_data.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
-        <script type="application/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
     </head>
 
-    <body ng-app="myApp">
-
+    <body>
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
@@ -98,9 +78,8 @@
                 <div>
                     <p>Price Tracking App</p>
                 </div>
-            </div><a class="widget uib_w_1 d-margins buttonText" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="left" href="#startPriceTrack" id="startButton">Start</a><a class="widget uib_w_3 d-margins"
-            data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="historyButton">History</a><a class="widget uib_w_4 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b"
-            data-icon="arrow-r" id="settingsButton">Settings</a>
+            </div><a class="widget uib_w_1 d-margins buttonText" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="left" href='#startPriceTrack' id="startButton">Start</a><a class="widget uib_w_3 d-margins" data-uib="jquery_mobile/button"
+            data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="historyButton">History</a><a class="widget uib_w_4 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="settingsButton">Settings</a>
         </div>
         <div class="upage vertical-col left" id="startPriceTrack" data-role="page">
             <div class="widget uib_w_5 d-margins QuestionText" data-uib="media/text" data-ver="0">
@@ -134,7 +113,6 @@
                 </label>
             </div>
             <a class="widget uib_w_9 d-margins buttonText" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" id="submitFirstStageProcessButton" data-icon="arrow-r">Select</a>
-            <a class="noButtonSelectedErrorText" id="goToChoicePage" href="#itemChoicePage"></a>
         </div>
         <div class="upage vertical-col left" id="itemChoicePage" data-role="page">
             <div class="widget uib_w_15 d-margins QuestionText" data-uib="media/text" data-ver="0" id="itemFindingText">
@@ -150,7 +128,6 @@
             </div>
 
             <a class="widget uib_w_14 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="submitItemChoice">Submit item</a>
-            <a class="noButtonSelectedErrorText" id="goToVerifyProcess" href="#itemVerifyProcess" data-role="button"></a>
         </div>
         <div class="upage vertical-col left" id="itemVerifyProcess" data-role="page">
             <div class="widget uib_w_16 d-margins QuestionText" data-uib="media/text" data-ver="0">
@@ -160,48 +137,47 @@
                     <p>Check that these are the items you are looking for. If it is, press yes and the price of the item will be tracked.</p>
                 </div>
             </div>
-            <div data-role="collapsible-set" class="no_wrap widget uib_w_17" data-uib="jquery_mobile/accordion" data-ver="0" data-collapsed-icon="plus" data-expanded-icon="minus" id="itemVerificationCollapsible">
+            <div data-role="collapsible-set" class="no_wrap widget uib_w_17 d-margins" data-uib="jquery_mobile/accordion" data-ver="0" data-collapsed-icon="plus" data-expanded-icon="minus" id="itemVerificationCollapsible">
                 <div data-role="collapsible" class="no_wrap widget uib_w_18" data-uib="jquery_mobile/collapsible" data-ver="0" id="amazonCollapsible">
                     <h4>Amazon</h4>
                     <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
                         <div class="widget-container content-area vertical-col">
 
-                            <div class="card_grid widget uib_w_36 wrapping-col flex-basis-36" data-uib="layout/card_grid" data-ver="0">
-                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_37 section-dimension-37" data-uib="layout/card" data-ver="0">
-                                    <div class="widget uib_w_41 scale-image" data-uib="media/img" data-ver="0">
+                            <div class="card_grid widget uib_w_21 wrapping-col flex-basis-21" data-uib="layout/card_grid" data-ver="0" id="amazonCardGrid">
+                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_23 section-dimension-23" data-uib="layout/card" data-ver="0">
+                                    <div class="widget uib_w_30 scale-image" data-uib="media/img" data-ver="0">
                                         <figure class="figure-align">
-                                            <img src="images/Strabburg.jpg" id="amazonItemImage">
+                                            <img src="images/Strabburg.jpg">
                                             <figcaption data-position="bottom"></figcaption>
                                         </figure>
                                     </div>
                                 </div>
-                                <div class="widget widget-container content-area vertical-col uib-card uib_w_38 section-dimension-38 cpad-0" data-uib="layout/card" data-ver="0" ng-controller="angular_controllers.uib_w_38.controller">
-                                    <div class="widget uib_w_42 d-margins" data-uib="media/text" data-ver="0" id="amazonItemText">
+                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_24 section-dimension-24" data-uib="layout/card" data-ver="0">
+                                    <div class="widget uib_w_31" data-uib="media/text" data-ver="0">
                                         <div class="widget-container left-receptacle"></div>
                                         <div class="widget-container right-receptacle"></div>
                                         <div>
-                                            <p>palceholder</p>
+                                            <p>Placeholder</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_39 section-dimension-39" data-uib="layout/card" data-ver="0">
-                                    <div class="table-thing with-label no_wrap widget uib_w_43 d-margins" data-uib="jquery_mobile/checkbox_group" data-ver="0" id="amazonGroupCheckbox">
-                                        <label class="narrow-control label-inline">Is this the item you are looking for?</label>
-                                        <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex">
-                                            <div class="ui-checkbox widget uib_w_44" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_25 section-dimension-25" data-uib="layout/card" data-ver="0">
+                                    <div class="table-thing with-label no_wrap widget uib_w_26" data-uib="jquery_mobile/checkbox_group" data-ver="0" id="expansysYesNoCheckboxGroup">
+                                        <label class="narrow-control label-inline">Is this the correct item?</label>
+                                        <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-mini="true">
+                                            <div class="ui-checkbox widget uib_w_27" data-uib="jquery_mobile/checkbox" data-ver="0">
                                                 <label>Yes
-                                                    <input type="checkbox" data-mini="true" id="amazonCheckYes">
+                                                    <input type="checkbox" data-mini="true" id="expansysCheckboxYes">
                                                 </label>
                                             </div>
-                                            <div class="ui-checkbox widget uib_w_45" data-uib="jquery_mobile/checkbox" data-ver="0">
+                                            <div class="ui-checkbox widget uib_w_28" data-uib="jquery_mobile/checkbox" data-ver="0">
                                                 <label>No
-                                                    <input type="checkbox" data-mini="true" id="amazonCheckNo">
+                                                    <input type="checkbox" data-mini="true" id="expansysCheckboxNo">
                                                 </label>
                                             </div>
                                         </fieldset>
                                     </div>
                                 </div>
-
                             </div><span class="uib_shim"></span>
                         </div>
                     </div>
@@ -221,7 +197,7 @@
                                         </figure>
                                     </div>
                                 </div>
-                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_24" data-uib="layout/card" data-ver="0">
+                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_24 section-dimension-24" data-uib="layout/card" data-ver="0">
                                     <div class="widget uib_w_31" data-uib="media/text" data-ver="0">
                                         <div class="widget-container left-receptacle"></div>
                                         <div class="widget-container right-receptacle"></div>
@@ -230,7 +206,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_25" data-uib="layout/card" data-ver="0">
+                                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_25 section-dimension-25" data-uib="layout/card" data-ver="0">
                                     <div class="table-thing with-label no_wrap widget uib_w_26" data-uib="jquery_mobile/checkbox_group" data-ver="0" id="ebayYesNoCheckboxGroup">
                                         <label class="narrow-control label-inline">Is this the correct item?</label>
                                         <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-mini="true">
@@ -297,47 +273,7 @@
                     </div>
                 </div>
             </div>
-            <div class="widget uib_w_46 d-margins QuestionText" data-uib="media/text" data-ver="0">
-                <div class="widget-container left-receptacle"></div>
-                <div class="widget-container right-receptacle"></div>
-                <div>
-                    <p>Once you are done, press the submit button below to continue.</p>
-                </div>
-            </div>
-            <a class="widget uib_w_32 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="arrow-r" id="itemSubmitButton" data-theme="b">Submit</a>
-            <a class="noButtonSelectedErrorText" data-role="button" href="#submitPricePage" id="goToSubmitPricePage"></a>
-        </div>
-        <div class="upage vertical-col left" id="submitPricePage" data-role="page">
-            <div class="widget uib_w_47 d-margins QuestionText" data-uib="media/text" data-ver="0" id="priceAskingQuestionText">
-                <div class="widget-container left-receptacle"></div>
-                <div class="widget-container right-receptacle"></div>
-                <div>
-                    <p>Please enter the price you would wish to track against:</p>
-                </div>
-            </div>
-            <div class="table-thing with-label widget uib_w_48 d-margins" data-uib="jquery_mobile/input" data-ver="0">
-                <label class="narrow-control" for="priceInput"></label>
-                <input class="wide-control" type="number" id="priceInput">
-            </div><a class="widget uib_w_49 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="submitPriceButton">Submit</a>
-            <a class="noButtonSelectedErrorText" data-role="button" href="#thankYouPage" id="goToThankYouPage">
-            </a>
-            <div class="upage vertical-col left" id="thankYouPage" data-role="page">
-                <a class="noButtonSelectedErrorText" data-role="button" href="#thankYouPage" id="</div">
-                    <div class="widget uib_w_50 d-margins QuestionText" data-uib="media/text" data-ver="0">
-                        <div class="widget-container left-receptacle"></div>
-                        <div class="widget-container right-receptacle"></div>
-                        <div>
-                            <p>Thank you for submitting your price.</p>
-                            <p>&nbsp;</p>
-                            <p>To check on your latest price please go to the history section on the main screen.</p>
-                            <p>&nbsp;</p>
-                            <p>You will be notified if the price falls below your asking price. To change how often you get nofified, please do so in settings.</p>
-                            <p>&nbsp;</p>
-                            <p>Press the button below to go back to the main menu.</p>
-                        </div>
-                    </div>
-                </a><a class="widget uib_w_51 d-margins" data-uib="jquery_mobile/button" href="#mainpage" data-ver="0" data-role="button" data-theme="b" data-icon="arrow-r" id="backMainMenu">Go to Main Menu</a>
-            </div>
+            <a class="widget uib_w_32 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="arrow-r" id="itemVerificationButton" data-theme="b">Button</a>
         </div>
     </body>
 
