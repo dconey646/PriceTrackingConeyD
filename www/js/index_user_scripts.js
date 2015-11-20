@@ -61,8 +61,7 @@
     /* button  #submitPriceButton */
     $(document).on("click", "#submitPriceButton", function(evt)
     {
-         /*global activate_page */
-        alert("I have been clicked!");
+        localStorage.setItem('priceValue', $('#priceInput').val());
         $('#goToThankYouPage').trigger('click');
     });
     
